@@ -71,6 +71,7 @@ public class RestaurantDetailFragment extends Fragment  implements View.OnClickL
         mWebsiteLabel.setOnClickListener(this);
         mPhoneLabel.setOnClickListener(this);
         mAddressLabel.setOnClickListener(this);
+        mSaveRestaurantButton.setOnClickListener(this);
 
 
         return view;
