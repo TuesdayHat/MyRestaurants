@@ -1,6 +1,8 @@
 package com.epicodus.myrestaurants.services;
 
 
+import android.util.Log;
+
 import com.epicodus.myrestaurants.Constants;
 import com.epicodus.myrestaurants.models.Restaurant;
 
@@ -33,6 +35,7 @@ public class YelpService {
                 .header("Authorization", Constants.YELP_TOKEN)
                 .build();
 
+        Log.d("RR -- ", "Response: "  + request.toString());
         Call call = client.newCall(request);
         call.enqueue(callback);
     }
