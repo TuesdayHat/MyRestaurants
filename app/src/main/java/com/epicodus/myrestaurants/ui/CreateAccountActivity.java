@@ -95,7 +95,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
     @Override
     public void onStart(){
         super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
+        mAuth.addAuthStateListener(mAuthListener); //REQUIRED for authStateListener to work
     }
 
     @Override
