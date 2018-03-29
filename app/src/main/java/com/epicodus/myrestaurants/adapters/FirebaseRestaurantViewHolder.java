@@ -22,22 +22,21 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-
-public class FirebaseRestaurantViewHolder extends RecyclerView implements View.OnClickListener {
+public class FirebaseRestaurantViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     private static final int MAX_WIDTH = 200;
     private static final int MAX_HEIGHT = 200;
 
     View mView;
     Context mContext;
 
-    public FirebaseRestaurantViewHolder(View itemView){
+    public FirebaseRestaurantViewHolder(View itemView) {
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
         itemView.setOnClickListener(this);
     }
 
-    public void bindRestaurant(Restaurant restaurant){
+    public void bindRestaurant(Restaurant restaurant) {
         ImageView restaurantImageView = (ImageView) mView.findViewById(R.id.restaurantImageView);
         TextView nameTextView = (TextView) mView.findViewById(R.id.restaurantNameTextView);
         TextView categoryTextView = (TextView) mView.findViewById(R.id.categoryTextView);
@@ -55,14 +54,14 @@ public class FirebaseRestaurantViewHolder extends RecyclerView implements View.O
     }
 
     @Override
-    public void onClick(View view){
+    public void onClick(View view) {
         final ArrayList<Restaurant> restaurants = new ArrayList<>();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_RESTAURANTS);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     restaurants.add(snapshot.getValue(Restaurant.class));
                 }
 
@@ -77,7 +76,6 @@ public class FirebaseRestaurantViewHolder extends RecyclerView implements View.O
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
             }
         });
     }
