@@ -59,6 +59,7 @@ public class FirebaseRestaurantViewHolder extends RecyclerView implements View.O
         final ArrayList<Restaurant> restaurants = new ArrayList<>();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_RESTAURANTS);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
+
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
