@@ -16,6 +16,7 @@ public class Restaurant {
     private double latitude;
     private double longitude;
     private List<String> categories;
+    private String index;
 
     public Restaurant() {}
 
@@ -27,17 +28,12 @@ public class Restaurant {
         this.website = website;
         this.rating = rating;
         this.imageUrl = imageUrl;
-//        this.imageUrl = getLargeImageUrl(imageUrl);
         this.address = address;
         this.latitude = latitude;
         this.longitude = longitude;
         this.categories = categories;
+        this.index = "not_specified";
     }
-
-//    public String getLargeImageUrl(String imageUrl){
-//        String largeImageUrl = imageUrl.substring(0, imageUrl.length() - 6).concat("o.jpg");
-//        return largeImageUrl;
-//    }
 
     public String getName() {
         return name;
@@ -73,5 +69,13 @@ public class Restaurant {
 
     public List<String> getCategories() {
         return categories;
+    }
+
+    public String getIndex(){
+        return index;
+    }
+
+    public void setIndex(String index){
+        this.index = index;
     }
 }
